@@ -37,10 +37,10 @@ class PowerStrip():
         self.results = []
         skip = False
         for line in self.contents:
-            if line.startswith('<#'):
+            if '<#' in line:
                 skip = True
                 continue
-            elif line.startswith('#>'):
+            elif '#>' in line:
                 skip = False
                 continue
             elif line.startswith('#'):
