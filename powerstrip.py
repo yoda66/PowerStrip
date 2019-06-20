@@ -3,6 +3,10 @@
 import argparse
 import sys
 import re
+import os
+__version__ = '1.0.1'
+__author__ = 'Joff Thyer'
+
 
 class PowerStrip():
 
@@ -45,6 +49,14 @@ class PowerStrip():
                 self.results.append(line)
 
 if __name__ == '__main__':
+    progname = os.path.basename(sys.argv[0]).split('.')[0].title()
+    banner = '''\
+[*] --------------------------------------------
+[*]   {}, Version: {}
+[*]   Author: {}, (c) 2019
+[*] --------------------------------------------
+'''.format(progname, __version__, __author__)
+    print(banner)
     parser = argparse.ArgumentParser()
     parser.add_argument('filename')
     args = parser.parse_args()
