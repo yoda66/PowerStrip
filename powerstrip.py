@@ -60,6 +60,16 @@ class PowerStrip():
 
         if not self.stutter:
             return
+
+        print('[*] Detected Function Names:')
+        out = ''
+        for f in sorted(self.functions.keys()):
+            out += '{}, '.format(f)
+            if len(out) > 60:
+                print('    [+] {}'.format(out))
+                out = ''
+        if len(out) < 60:
+            print('    [+] {}'.format(out[:-2]))
         # fix function names
         replaced = 0
         for i, line in enumerate(self.results):
